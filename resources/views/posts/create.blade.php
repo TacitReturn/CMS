@@ -32,6 +32,11 @@
 
                     <input class="form-control" type="date" id="published_at" name="published_at">
                 </div>
+                <div class="form-group">
+                    <button class="btn btn-success btn-block">
+                        Submit
+                    </button>
+                </div>
             </form>
         </div>
     </div>
