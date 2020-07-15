@@ -18,13 +18,15 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    @yield("css")
 </head>
 <body>
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
+                {{ config('app.name', 'CMS') }}
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -80,7 +82,7 @@
         @auth
             <div class="container">
                 @if(session()->has('success'))
-                    <div class="alert alert-success">
+                    <div class="alert alert-success alert-block">
                         {{ session()->get('success') }}
                     </div>
                 @endif
@@ -94,6 +96,12 @@
                                 <a href="{{ route("categories.index") }}">Category</a>
                             </li>
                         </ul>
+
+                        <ul class="list-group my-5">
+                            <li class="list-group-item">
+                                <a href="{{ route("trashed-post.index") }}">Trashed Posts</a>
+                            </li>
+                        </ul>
                     </div>
                     <div class="col-md-8">
                         @yield('content')
@@ -105,6 +113,6 @@
         @endauth
     </main>
 </div>
-@yield('scripts')
+@yield("scripts")
 </body>
 </html>

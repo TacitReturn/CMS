@@ -8,38 +8,42 @@
             Categories
         </div>
         <div class="card-body">
-            <table class="table">
-                <thead>
-                <th>Name</th>
-                <th></th>
-                <th></th>
-                </thead>
+            @if(count($categories) > 0)
+                <table class="table">
+                    <thead>
+                    <th>Name</th>
+                    <th></th>
+                    <th></th>
+                    </thead>
 
-                <tbody>
-                @foreach($categories as $category)
+                    <tbody>
+                    @foreach($categories as $category)
 
-                    <tr>
-                        <td>
-                            {{ $category->name }}
-                        </td>
-                        <td>
-                            <a href="{{ route('categories.edit', $category) }}" class="btn btn-info btn-sm">
-                                Edit
-                            </a>
-                        </td>
-                        <td>
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                                    data-target="#deleteModal"
-                                    onclick="handleDelete({{ $category->id }})">
-                                Delete
-                            </button>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>
+                                {{ $category->name }}
+                            </td>
+                            <td>
+                                <a href="{{ route('categories.edit', $category) }}" class="btn btn-info btn-sm">
+                                    Edit
+                                </a>
+                            </td>
+                            <td>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                                        data-target="#deleteModal"
+                                        onclick="handleDelete({{ $category->id }})">
+                                    Delete
+                                </button>
+                            </td>
+                        </tr>
 
-                @endforeach
-                </tbody>
-            </table>
+                    @endforeach
+                    </tbody>
+                </table>
+            @else
+                <h3>No Categories..</h3>
+            @endif
             <form action="" method="POST" id="deleteCategoryForm">
             @csrf
             @method('DELETE')
