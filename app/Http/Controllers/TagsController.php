@@ -43,7 +43,7 @@ class TagsController extends Controller
 
         session()->flash("success", "Tag created successfully");
 
-        return redirect("tags.index");
+        return redirect(route("tags.index"));
     }
 
     /**
@@ -98,6 +98,6 @@ class TagsController extends Controller
 
         session()->flash("success", "Tag deleted successfully..");
 
-        return redirect("tags.index");
+        return redirect(route("tags.index"));
     }
 }

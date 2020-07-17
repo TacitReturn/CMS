@@ -102,12 +102,15 @@
                 {{--                @endif--}}
                 <div class="row">
                     <div class="col-md-4">
-                        <ul class="list-group">
+                        <ul class="list-group my-4">
                             <li class="list-group-item">
-                                <a href="{{ route("posts.index") }}">Post</a>
+                                <a href="{{ route("posts.index") }}">Posts</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="{{ route("categories.index") }}">Category</a>
+                                <a href="{{ route("categories.index") }}">Categories</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="{{ route("tags.index") }}">Tags</a>
                             </li>
                         </ul>
 
