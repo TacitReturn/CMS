@@ -16,3 +16,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get("trashed-posts", "PostsController@trashed")->name("trashed-post.index");
     Route::put("restore-post/{post}", "PostsController@restore")->name("posts.restore");
 });
+
+
+Route::get("users", "UsersController@index");
