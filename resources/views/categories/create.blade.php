@@ -16,10 +16,10 @@
                     </ul>
                 </div>
             @endif
-            <form action="{{ isset($category) ? route('categories.update', $category) : route('categories.store')}}"
+            <form action="{{ isset($category) ? route('categories.update', $category->id) : route('categories.store')}}"
                   method="POST">
                 @csrf
-                @if(isset($post))
+                @if(isset($category))
                     @method('PUT')
                 @endif
                 <div class="form-group">
@@ -30,7 +30,7 @@
                     >
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-success">
+                    <button type="submit" class="btn btn-success">
                         {{ isset($category) ? 'Update Category' : 'Create Category' }}
                     </button>
                 </div>

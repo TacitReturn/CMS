@@ -18,7 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
     @yield("css")
 </head>
 <body>
@@ -91,15 +91,15 @@
                         {{ session()->get('error') }}
                     </div>
                 @endif
-                {{--                @if ($errors->any())--}}
-                {{--                    <div class="alert alert-danger">--}}
-                {{--                        <ul>--}}
-                {{--                            @foreach ($errors->all() as $error)--}}
-                {{--                                <li>{{ $error }}</li>--}}
-                {{--                            @endforeach--}}
-                {{--                        </ul>--}}
-                {{--                    </div>--}}
-                {{--                @endif--}}
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                 <div class="row">
                     <div class="col-md-4">
                         <ul class="list-group my-4">
@@ -131,5 +131,6 @@
     </main>
 </div>
 @yield("scripts")
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 </body>
 </html>

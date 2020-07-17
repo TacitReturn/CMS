@@ -25,8 +25,7 @@
                                 {{ $tag->name }}
                             </td>
                             <td class="text-center">
-{{--                                {{ $category->posts()->count() }}--}}
-                                1
+                                {{ $tag->posts()->count() }}
                             </td>
                             <td>
                                 <a href="{{ route('tags.edit', $tag) }}" class="btn btn-info btn-sm">

@@ -39,8 +39,8 @@
                         @foreach($categories as $category)
 
                             <option value="{{ $category->id }}"
-                                    {{ (isset($post) && $category->id == $post->category_id) ? 'selected' : NULL }}
-                                >
+                                {{ (isset($post) && $category->id == $post->category_id) ? 'selected' : NULL }}
+                            >
                                 {{ $category->name }}
                             </option>
 
@@ -48,6 +48,26 @@
 
                     </select>
                 </div>
+                @if($tags->count() > 0)
+                    <div class="form-group">
+                        <label for="tags">Tags</label>
+
+                        <select name="tags[]" id="tags" class="form-control" multiple>
+                            @foreach($tags as $tag)
+                                <option value="{{ $tag->id }}"
+                                        @if(isset($post))
+                                        @if($post->hasTag($tag->id))
+                                        selected
+                                    @endif
+                                    @endif
+                                >
+                                    {{ $tag->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                @endif
+
 
                 <div class="form-group">
                     <label for="description">Description</label>
@@ -71,8 +91,8 @@
                     >
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-success btn-block">
-                        Submit
+                    <button type="submit" class="btn btn-success btn-block">
+                        {{ isset($post) ? "Update Post" : "Submit" }}
                     </button>
                 </div>
             </form>
@@ -82,7 +102,18 @@
 
 @section("scripts")
     <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.3/trix.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 @endsection
+
 @section("css")
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.3/trix.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
 @endsection
+
+<script>
+
+    $(document).ready(function () {
+        $('#tags').select2();
+    });
+</script>
