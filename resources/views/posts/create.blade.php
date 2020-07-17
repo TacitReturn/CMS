@@ -33,6 +33,23 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="category">Category</label>
+                    <select name="category" id="category" class="form-control">
+
+                        @foreach($categories as $category)
+
+                            <option value="{{ $category->id }}"
+                                    {{ (isset($post) && $category->id == $post->category_id) ? 'selected' : NULL }}
+                                >
+                                {{ $category->name }}
+                            </option>
+
+                        @endforeach
+
+                    </select>
+                </div>
+
+                <div class="form-group">
                     <label for="description">Description</label>
                     <textarea class="form-control" name="description" id="description" cols="3"
                               rows="3">{{ isset($post) ? $post->description : '' }}</textarea>

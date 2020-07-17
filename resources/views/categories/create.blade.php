@@ -16,11 +16,12 @@
                     </ul>
                 </div>
             @endif
-            <form action="{{ isset($category) ? route('categories.update', $category) : route('categories.create')}}"
+            <form action="{{ isset($category) ? route('categories.update', $category) : route('categories.store')}}"
                   method="POST">
                 @csrf
-                @method('PUT')
-
+                @if(isset($post))
+                    @method('PUT')
+                @endif
                 <div class="form-group">
                     <label for="name">Category Name</label>
                     <input class="form-control" type="text"

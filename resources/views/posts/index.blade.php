@@ -14,7 +14,7 @@
                     <thead>
                     <th>Image</th>
                     <th>Title</th>
-                    <th></th>
+                    <th>Category</th>
                     <th></th>
                     </thead>
                     <tbody>
@@ -30,14 +30,36 @@
                                 {{ $post->title }}
                             </td>
                             <td>
-                                <a href="{{ route("posts.edit", $post->id) }}" class="btn btn-success btn-sm">Edit</a>
+                                <a href="{{ route("categories.edit", $post->category->id) }}">{{ $post->category->name }}</a>
                             </td>
+                            @if($post->trashed())
+                                <td>
+                                    <form action="{{ route("posts.restore", $post->id) }}" method="POST">
+                                        @csrf
+                                        @method("PUT")
+                                        <button type="submit" class="btn btn-success btn-sm">Restore</button>
+                                    </form>
+                                </td>
+                            @else
+                                <td>
+                                    <a href="{{ route("posts.edit", $post->id) }}"
+                                       class="btn btn-success btn-sm">Edit</a>
+                                </td>
+                            @endif
                             <td>
-                                <form action="{{ route("posts.destroy", $post->id) }}" method="POST">
-                                    @csrf
-                                    @method("DELETE")
-                                    <button class="btn btn-danger btn-sm">Trash</button>
-                                </form>
+                                @if($post->trashed())
+                                    <form action="{{ route("posts.destroy", $post->id) }}" method="POST">
+                                        @csrf
+                                        @method("DELETE")
+                                        <button class="btn btn-danger btn-sm">Delete</button>
+                                    </form>
+                                @else
+                                    <form action="{{ route("posts.destroy", $post->id) }}" method="POST">
+                                        @csrf
+                                        @method("DELETE")
+                                        <button class="btn btn-danger btn-sm">Trash</button>
+                                    </form>
+                                @endif
                             </td>
                         </tr>
                     @endforeach
