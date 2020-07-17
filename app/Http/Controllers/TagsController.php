@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateTagRequest;
+use App\Http\Requests\UpdateTagRequest;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class TagsController extends Controller
@@ -11,9 +14,9 @@ class TagsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Tag $tags)
     {
-        //
+        return view("tags.index")->with("tags", Tag::all());
     }
 
     /**
@@ -23,7 +26,7 @@ class TagsController extends Controller
      */
     public function create()
     {
-        //
+        return view("tags.create");
     }
 
     /**
@@ -32,20 +35,26 @@ class TagsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateTagRequest $request)
     {
-        //
+        Tag::create([
+           'name' => $request->name
+        ]);
+
+        session()->flash("success", "Tag created successfully");
+
+        return redirect("tags.index");
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param Tag $tag
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Tag $tag)
     {
-        //
+        return view("tags.show")->with("tag", $tag);
     }
 
     /**
@@ -54,9 +63,9 @@ class TagsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Tag $tag)
     {
-        //
+        return view("tags.create")->with("tag", $tag);
     }
 
     /**
@@ -66,9 +75,15 @@ class TagsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateTagRequest $request, Tag $tag)
     {
-        //
+        $tag->update([
+            "name" => $request->name
+        ]);
+
+        session()->flash("success", "Tag updated successfully..");
+
+        return redirect(route("tags.index"));
     }
 
     /**
@@ -77,8 +92,12 @@ class TagsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Tag $tag)
     {
-        //
+        $tag->delete();
+
+        session()->flash("success", "Tag deleted successfully..");
+
+        return redirect("tags.index");
     }
 }
