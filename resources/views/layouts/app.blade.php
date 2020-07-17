@@ -91,18 +91,23 @@
                         {{ session()->get('error') }}
                     </div>
                 @endif
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="row">
                     <div class="col-md-4">
                         <ul class="list-group my-4">
+                            @if(auth()->user()->isAdmin())
+                                <li class="list-group-item">
+                                    <a href="{{ route("posts.index") }}">Users</a>
+                                </li>
+                            @endif
                             <li class="list-group-item">
                                 <a href="{{ route("posts.index") }}">Posts</a>
                             </li>
