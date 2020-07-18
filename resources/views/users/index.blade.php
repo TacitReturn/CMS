@@ -12,7 +12,7 @@
 
                 <table class="table">
                     <thead>
-                    <th>Image</th>
+                    <th>Gravatar</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th></th>
@@ -22,7 +22,7 @@
                     @foreach($users as $user)
                         <tr>
                             <td>
-                                IMAGE
+                                <img class="rounded" src="{{ $user->gravatar }}" alt="user-{{ $user->id }}-avatar">
                             </td>
                             <td>
                                 {{ $user->name }}
@@ -32,7 +32,10 @@
                             </td>
                             <td>
                                 @if(!$user->isAdmin())
-                                    <button class="btn btn-sm btn-danger">Make Admin</button>
+                                    <form action="{{ route("users.make-admin", $user) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-sm btn-danger">Make Admin</button>
+                                    </form>
                                 @endif
                             </td>
                         </tr>

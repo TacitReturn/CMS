@@ -41,4 +41,16 @@ class User extends Authenticatable
     {
         return $this->role == "admin";
     }
+
+    /**
+     * Fetch the gravatar by user email
+     *
+     * @return string gravatar url
+     */
+    public function getGravatarAttribute()
+    {
+        $hash = md5(strtolower(trim($this->attributes['email'])));
+
+        return "https://secure.gravatar.com/avatar/{$hash}";
+    }
 }
