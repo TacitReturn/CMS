@@ -2,9 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get("/", function () {
-    return view('welcome');
-});
+Route::get("/", "WelcomeController@index")->name('welcome');
 
 Auth::routes();
 
@@ -24,3 +22,5 @@ Route::middleware(["auth", "verifyIsAdmin"])->group(function () {
     Route::get("users", "UsersController@index")->name("users.index");
     Route::post("users/{user}/make-admin", "UsersController@makeAdmin")->name("users.make-admin");
 });
+
+
