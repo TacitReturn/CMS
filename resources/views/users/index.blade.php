@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-{{--    <div class="d-flex justify-content-end">--}}
-{{--        <a href="{{ route("posts.create") }}" class="btn btn-success mb-2">Add Posts</a>--}}
-{{--    </div>--}}
+    {{--    <div class="d-flex justify-content-end">--}}
+    {{--        <a href="{{ route("posts.create") }}" class="btn btn-success mb-2">Add Posts</a>--}}
+    {{--    </div>--}}
 
     <div class="card card-default">
         <div class="card-header">Users</div>
@@ -15,6 +15,7 @@
                     <th>Image</th>
                     <th>Name</th>
                     <th>Email</th>
+                    <th></th>
 
                     </thead>
                     <tbody>
@@ -28,6 +29,11 @@
                             </td>
                             <td>
                                 {{ $user->email }}
+                            </td>
+                            <td>
+                                @if(!$user->isAdmin())
+                                    <button class="btn btn-sm btn-danger">Make Admin</button>
+                                @endif
                             </td>
                         </tr>
                     @endforeach
