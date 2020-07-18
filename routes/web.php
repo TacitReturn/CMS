@@ -18,4 +18,4 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
-Route::get("users", "UsersController@index");
+Route::get("users", "UsersController@index")->name("users.index");
