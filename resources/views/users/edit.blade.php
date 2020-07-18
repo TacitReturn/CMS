@@ -16,9 +16,7 @@
                     </div>
                     <div class="form-group">
                         <label for="about">About</label>
-                        <textarea name="about" id="about" cols="5" rows="5" class="form-control">
-                            {{ $user->about }}
-                        </textarea>
+                        <textarea name="about" id="about" cols="5" rows="5" class="form-control">{{ $user->about }}</textarea>
                     </div>
                     <button type="submit" class="btn btn-success btn-block">
                         Update Profile
