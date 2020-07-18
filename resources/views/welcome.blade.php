@@ -320,14 +320,17 @@
             </ul>
         </section>
 
-        <a class="btn btn-xs btn-round btn-success" href="https://themeforest.net/item/thesaas-responsive-bootstrap-saas-software-webapp-template/19778599?license=regular&open_purchase_for_item_id=19778599&purchasable=source&ref=thethemeio">Buy Now</a>
+        <a class="btn btn-xs btn-round btn-success"
+           href="https://themeforest.net/item/thesaas-responsive-bootstrap-saas-software-webapp-template/19778599?license=regular&open_purchase_for_item_id=19778599&purchasable=source&ref=thethemeio">Buy
+            Now</a>
 
     </div>
 </nav><!-- /.navbar -->
 
 
 <!-- Header -->
-<header class="header text-center text-white" style="background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);">
+<header class="header text-center text-white"
+        style="background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);">
     <div class="container">
 
         <div class="row">
@@ -355,69 +358,15 @@
 
                         <div class="col-md-6">
                             <div class="card border hover-shadow-6 mb-6 d-block">
-                                <a href="#"><img class="card-img-top" src="../assets/img/thumb/1.jpg" alt="Card image cap"></a>
+                                <a href="#"><img class="card-img-top" src="../assets/img/thumb/1.jpg"
+                                                 alt="Card image cap"></a>
                                 <div class="p-6 text-center">
                                     <p><a class="small-5 text-lighter text-uppercase ls-2 fw-400" href="#">News</a></p>
-                                    <h5 class="mb-0"><a class="text-dark" href="#">We relocated our office to a new designed garage</a></h5>
+                                    <h5 class="mb-0"><a class="text-dark" href="#">We relocated our office to a new
+                                            designed garage</a></h5>
                                 </div>
                             </div>
                         </div>
-
-
-                        <div class="col-md-6">
-                            <div class="card border hover-shadow-6 mb-6 d-block">
-                                <a href="#"><img class="card-img-top" src="../assets/img/thumb/2.jpg" alt="Card image cap"></a>
-                                <div class="p-6 text-center">
-                                    <p><a class="small-5 text-lighter text-uppercase ls-2 fw-400" href="#">Marketing</a></p>
-                                    <h5 class="mb-0"><a class="text-dark" href="#">Top 5 brilliant content marketing strategies</a></h5>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-md-6">
-                            <div class="card border hover-shadow-6 mb-6 d-block">
-                                <a href="#"><img class="card-img-top" src="../assets/img/thumb/3.jpg" alt="Card image cap"></a>
-                                <div class="p-6 text-center">
-                                    <p><a class="small-5 text-lighter text-uppercase ls-2 fw-400" href="#">Design</a></p>
-                                    <h5 class="mb-0"><a class="text-dark" href="#">Best practices for minimalist design with example</a></h5>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-md-6">
-                            <div class="card border hover-shadow-6 mb-6 d-block">
-                                <a href="#"><img class="card-img-top" src="../assets/img/thumb/4.jpg" alt="Card image cap"></a>
-                                <div class="p-6 text-center">
-                                    <p><a class="small-5 text-lighter text-uppercase ls-2 fw-400" href="#">Hiring</a></p>
-                                    <h5 class="mb-0"><a class="text-dark" href="#">Congratulate and thank to Maryam for joining our team</a></h5>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-md-6">
-                            <div class="card border hover-shadow-6 mb-6 d-block">
-                                <a href="#"><img class="card-img-top" src="../assets/img/thumb/5.jpg" alt="Card image cap"></a>
-                                <div class="p-6 text-center">
-                                    <p><a class="small-5 text-lighter text-uppercase ls-2 fw-400" href="#">Product</a></p>
-                                    <h5 class="mb-0"><a class="text-dark" href="#">New published books to read by a product designer</a></h5>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-md-6">
-                            <div class="card border hover-shadow-6 mb-6 d-block">
-                                <a href="#"><img class="card-img-top" src="../assets/img/thumb/6.jpg" alt="Card image cap"></a>
-                                <div class="p-6 text-center">
-                                    <p><a class="small-5 text-lighter text-uppercase ls-2 fw-400" href="#">Management</a></p>
-                                    <h5 class="mb-0"><a class="text-dark" href="#">This is why it's time to ditch dress codes at work</a></h5>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
 
 
@@ -426,7 +375,6 @@
                         <a class="btn btn-white" href="#">Older <i class="ti-arrow-right fs-9 ml-4"></i></a>
                     </nav>
                 </div>
-
 
 
                 <div class="col-md-4 col-xl-3">
@@ -444,14 +392,11 @@
 
                         <h6 class="sidebar-title">Categories</h6>
                         <div class="row link-color-default fs-14 lh-24">
-                            <div class="col-6"><a href="#">News</a></div>
-                            <div class="col-6"><a href="#">Updates</a></div>
-                            <div class="col-6"><a href="#">Design</a></div>
-                            <div class="col-6"><a href="#">Marketing</a></div>
-                            <div class="col-6"><a href="#">Partnership</a></div>
-                            <div class="col-6"><a href="#">Product</a></div>
-                            <div class="col-6"><a href="#">Hiring</a></div>
-                            <div class="col-6"><a href="#">Offers</a></div>
+                            @foreach($categories as $category)
+                                <div class="col-6">
+                                    <a href="">{{ $category->name }}</a>
+                                </div>
+                            @endforeach
                         </div>
 
                         <hr>
@@ -497,7 +442,9 @@
                         <hr>
 
                         <h6 class="sidebar-title">About</h6>
-                        <p class="small-3">TheSaaS is a responsive, professional, and multipurpose SaaS, Software, Startup and WebApp landing template powered by Bootstrap 4. TheSaaS is a powerful and super flexible tool for any kind of landing pages.</p>
+                        <p class="small-3">TheSaaS is a responsive, professional, and multipurpose SaaS, Software,
+                            Startup and WebApp landing template powered by Bootstrap 4. TheSaaS is a powerful and super
+                            flexible tool for any kind of landing pages.</p>
 
 
                     </div>
@@ -522,7 +469,8 @@
                 <div class="social">
                     <a class="social-facebook" href="https://www.facebook.com/thethemeio"><i class="fa fa-facebook"></i></a>
                     <a class="social-twitter" href="https://twitter.com/thethemeio"><i class="fa fa-twitter"></i></a>
-                    <a class="social-instagram" href="https://www.instagram.com/thethemeio/"><i class="fa fa-instagram"></i></a>
+                    <a class="social-instagram" href="https://www.instagram.com/thethemeio/"><i
+                            class="fa fa-instagram"></i></a>
                     <a class="social-dribbble" href="https://dribbble.com/thethemeio"><i class="fa fa-dribbble"></i></a>
                 </div>
             </div>
