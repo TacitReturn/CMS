@@ -24,7 +24,7 @@ class Post extends Model
 
     public function category()
     {
-        return $this->belongsTo(Post::class, 'category_id');
+        return $this->belongsTo(Category::class);
     }
 
     public function tags()

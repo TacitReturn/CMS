@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get("/", "WelcomeController@index")->name('welcome');
-
+Route::get("/posts{post}", [PostsController::class, "show"]);
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
