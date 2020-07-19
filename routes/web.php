@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Blog\PostsController;
 
 Route::get("/", "WelcomeController@index")->name('welcome');
-Route::get("/posts{post}", [PostsController::class, "show"]);
+Route::get("/posts{post}", [PostsController::class, "show"])->name("blog.show");
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {

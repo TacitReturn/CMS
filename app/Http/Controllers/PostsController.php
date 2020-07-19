@@ -57,7 +57,8 @@ class PostsController extends Controller
 //            "image" => $image
             "image" => $request->file("image")->store("posts", "public"),
             "published_at" => $request->published_at,
-            "category_id" => $request->category
+            "category_id" => $request->category,
+            "user_id" => auth()->user()->id
 
         ]);
 

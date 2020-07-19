@@ -53,4 +53,9 @@ class User extends Authenticatable
 
         return "https://secure.gravatar.com/avatar/{$hash}";
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }
