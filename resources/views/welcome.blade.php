@@ -34,38 +34,35 @@
 
                     <div class="col-md-8 col-xl-9">
                         <div class="row gap-y">
-                            @foreach($posts as $post)
-                                <div class="col-md-6">
-                                    <div class="card border hover-shadow-6 mb-6 d-block">
-                                        <a href="{{ route("blog.show", $post->id) }}">
-                                            <img class="card-img-top" src="{{ asset("storage/" . $post->image) }}"
-                                                 alt="Card image cap">
-                                        </a>
-                                        <div class="p-6 text-center">
-                                            <p>
-                                                <a class="small-5 text-lighter text-uppercase ls-2 fw-400" href="#">
-                                                    {{ $post->category->name}}
-                                                </a>
-                                            </p>
-                                            <h5 class="mb-0">
-                                                <a class="text-dark" href="{{ route("blog.show", $post->id) }}">
-                                                    {{ $post->title }}
-                                                </a>
-                                            </h5>
-                                        </div>
+                            @forelse($posts as $post)
+                            <div class="col-md-6">
+                                <div class="card border hover-shadow-6 mb-6 d-block">
+                                    <a href="{{ route("blog.show", $post->id) }}">
+                                        <img class="card-img-top" src="{{ asset("storage/" . $post->image) }}"
+                                             alt="Card image cap">
+                                    </a>
+                                    <div class="p-6 text-center">
+                                        <p>
+                                            <a class="small-5 text-lighter text-uppercase ls-2 fw-400" href="#">
+                                                {{ $post->category->name}}
+                                            </a>
+                                        </p>
+                                        <h5 class="mb-0">
+                                            <a class="text-dark" href="{{ route("blog.show", $post->id) }}">
+                                                {{ $post->title }}
+                                            </a>
+                                        </h5>
                                     </div>
                                 </div>
-                            @endforeach
+                            </div>
+                            @empty
+                                <p class="lead text-center">
+                                    No results found for <strong>{{ request()->query("search") }}</strong>
+                                </p>
+                            @endforelse
 
                         </div>
-
-
-{{--                        <nav class="flexbox mt-30">--}}
-{{--                            <a class="btn btn-white disabled"><i class="ti-arrow-left fs-9 mr-4"></i> Newer</a>--}}
-{{--                            <a class="btn btn-white" href="#">Older <i class="ti-arrow-right fs-9 ml-4"></i></a>--}}
-{{--                        </nav>--}}
-
-                        {{ $posts->links() }}
+                        {{ $posts->appends(["search" => request()->query("search")])->links() }}
                     </div>
 
 
@@ -73,8 +70,11 @@
                         <div class="sidebar px-4 py-md-0">
 
                             <h6 class="sidebar-title">Search</h6>
-                            <form class="input-group" target="#" method="GET">
-                                <input type="text" class="form-control" name="s" placeholder="Search">
+                            <form action="{{ route("welcome") }}" class="input-group" method="GET">
+                                <input type="text" class="form-control"
+                                       name="search" placeholder="Search"
+                                       value="{{ request()->query("search") }}"
+                                >
                                 <div class="input-group-addon">
                                     <span class="input-group-text"><i class="ti-search"></i></span>
                                 </div>
