@@ -43,7 +43,7 @@ class PostsTableSeeder extends Seeder
         ]);
 
 
-        $post1 = Post::create([
+        $post1 = $author1->posts()->create([
             "title" => "We relocated our office to a new designed garage",
             "description" => "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...",
             "content" =>
@@ -83,7 +83,7 @@ class PostsTableSeeder extends Seeder
 
         ]);
 
-        $post4 = $category1->posts()->create([
+        $post4 = $author1->posts()->create([
             "title" => "Congratulate and thank to Maryam for joining our team",
             "description" => "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...",
             "content" =>
@@ -96,7 +96,7 @@ class PostsTableSeeder extends Seeder
 
         ]);
 
-        $post5 = $author2->posts->create([
+        $post5 = $author2->posts()->create([
             "title" => "Congratulate and thank to Maryam for joining our team",
             "description" => "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...",
             "content" =>

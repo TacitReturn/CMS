@@ -24,6 +24,7 @@
             font-family: 'Montserrat', sans-serif;
             font-weight: bold;
             text-decoration: underline;
+            color: white;
         }
     </style>
 </head>
@@ -36,7 +37,7 @@
     <div class="container">
 
         <div class="navbar-left">
-            <a id="main-logo-text" class="navbar-brand" href="#">
+            <a id="main-logo-text" class="navbar-brand" href="{{ route("welcome") }}">
                 <p class="lead">
                     Rudge Software
                 </p>

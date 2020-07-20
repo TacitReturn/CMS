@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+
 class UserSeeder extends Seeder
 {
     /**
@@ -14,12 +15,11 @@ class UserSeeder extends Seeder
     {
         $user = User::where("email", "GlennRudge@Outlook.com")->first();
 
-        if (!$user)
-        {
+        if (!$user) {
             User::create([
-               "name" => "Glenn Rudge",
-               "role" => "admin",
-               "email" => "GlennRudge@Outlook.com",
+                "name" => "Glenn Rudge",
+                "role" => "admin",
+                "email" => "GlennRudge@Outlook.com",
                 "password" => Hash::make("password")
             ]);
         }
