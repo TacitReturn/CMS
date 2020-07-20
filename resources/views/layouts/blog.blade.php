@@ -90,12 +90,15 @@
 
         </div>
     </div>
-</footer><!-- /.footer -->
+</footer>
+<!-- /.footer -->
 
 
 <!-- Scripts -->
 <script src="{{ asset("js/page.min.js") }}"></script>
 <script src="{{ asset("js/script.js") }}"></script>
 
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5f1608a8927b2be8"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5f160877839e3d1e"></script>
 </body>
 </html>
