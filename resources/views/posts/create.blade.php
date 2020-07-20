@@ -85,10 +85,8 @@
 
                 <div class="form-group">
                     <label for="published_at">Published At</label>
-                    <input class="form-control" type="{{ isset($post) ? "text" : "datetime-local" }}"
-                           id="published_at" name="published_at"
-                           value="{{ isset($post) ? $post->published_at : '' }}"
-                    >
+                    <input type="datetime-local" class="form-control" name="published_at" id='published_at'
+                           value="{{ isset($post) ? $post->published_at : '' }}">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-success btn-block">

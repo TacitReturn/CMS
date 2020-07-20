@@ -43,7 +43,7 @@
                 </p>
             </a>
         </div>
-        <a class="btn btn-xs btn-round btn-success" href="{{ route("login") }}">Login</a>
+        <a class="btn btn-dark" href="{{ route("login") }}">Login</a>
 
     </div>
 </nav>
